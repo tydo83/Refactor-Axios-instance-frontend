@@ -52,8 +52,8 @@ export class CreateFriend extends Component {
     const { firstName, lastName, friendMobileNumber, nickName } = this.state;
     let jwtToken = localStorage.getItem("jwtToken");
     try {
-      let payload = await axios.post(
-        "http://localhost:3001/friends/create-friend",
+      let payload = await Axios.post(
+        "/friends/create-friend",
         {
           firstName,
           lastName,
