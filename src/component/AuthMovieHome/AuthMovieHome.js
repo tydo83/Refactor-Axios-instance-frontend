@@ -4,6 +4,7 @@ import axios from "axios";
 const CancelToken = axios.CancelToken;
 const source = CancelToken.source();
 
+
 export class AuthMovieHome extends Component {
   constructor(props) {
     super(props);

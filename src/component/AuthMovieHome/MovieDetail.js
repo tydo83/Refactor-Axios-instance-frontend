@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import Axios from "./Axios";
 
 export class MovieDetail extends Component {
   state = {
@@ -22,8 +23,8 @@ export class MovieDetail extends Component {
 
       let jwtToken = localStorage.getItem("jwtToken");
 
-      let friendsArrayPayload = await axios.get(
-        "http://localhost:3001/friends/get-all-friends",
+      let friendsArrayPayload = await Axios.get(
+        "/friends/get-all-friends",
         {
           headers: {
             authorization: `Bearer ${jwtToken}`,
@@ -58,8 +59,8 @@ export class MovieDetail extends Component {
       //console.log(movieTextInfo);
       let jwtToken = localStorage.getItem("jwtToken");
 
-      let payload = await axios.post(
-        "http://localhost:3001/users/send-sms-movie-to-friend",
+      let payload = await Axios.post(
+        "/users/send-sms-movie-to-friend",
         movieTextInfo,
         {
           headers: {
