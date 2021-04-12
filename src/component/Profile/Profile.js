@@ -3,6 +3,7 @@ import { debounce } from "lodash";
 import axios from "axios";
 import { toast } from "react-toastify";
 import jwtDecode from "jwt-decode";
+import Axios from '../lib/axios/Axios'
 
 export class Profile extends Component {
   constructor(props) {
@@ -29,8 +30,8 @@ export class Profile extends Component {
 
       let decodedJwtToken = jwtDecode(getJwtTokenFromStorage);
 
-      let success = await axios.put(
-        "http://localhost:3001/users/update-user-password",
+      let success = await Axios.put(
+        "/users/update-user-password",
         {
           email: decodedJwtToken.email,
           oldPassword: this.state.oldPassword,
